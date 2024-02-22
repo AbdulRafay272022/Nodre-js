@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<h1 class="heading">How are you doing?</h1>
+<h1>Welcome {{name}} From {{country}} <br> Your Age Is {{age}} <br> </h1>
+<img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="Nature">
+<p>2 method hoty get and post and action jis url phr bhejna or input name pht atta ppost sy input url mai ni atta get sy atta hai isliyh login ya security time post use krty or empty mai yh get use krta</p>
+<form action="counter" method="POST"> 
+    {% csrf_token %}
+    <textarea name="text" id="text" cols="30" rows="10"></textarea><br>
+    <input type="submit"/>
+</form>
