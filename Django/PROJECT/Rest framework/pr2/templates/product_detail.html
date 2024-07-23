@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if raw_product %}
+
+  <h2>Product Detail (Raw SQL)</h2>
+  <p>Name: {{ raw_product.1 }}</p>
+  <p>Price: &#8377;{{ raw_product.2 }}</p>
+
+  <a href="{% url 'product_update' raw_product.0 %}">Update</a>
+  <a href="{% url 'product_delete' raw_product.0 %}">Delete</a>
+{% else %}
+  <h2>Product Not Found</h2>
+{% endif %}
+{% endblock %}

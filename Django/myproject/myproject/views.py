@@ -32,6 +32,10 @@ def index(request):
 
 def counter(request):
     #text=request.GET['text']#same jo waha name mai diya hai
-    text=request.POST['text']
-    count=len(text.split())
-    return render(request,'counter.html',{'count':count})
+    #text=request.POST['text']
+    #count=len(text.split())
+    posts=['1','2','3','ahmed','usman']
+    return render(request,'counter.html',{'posts':posts})
+
+def post(request,pk):
+    return render(request,'post.html',{'pk':pk})

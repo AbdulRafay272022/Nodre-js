@@ -19,5 +19,6 @@ from django.urls import path#isse config krty path ko
 
 urlpatterns = [#is list mai url add krdo jo bhi dene
     path('',views.index ,name='index'),#home tw main link hi tw empty or usky sth jo resopnse render krna woh jo bhi views ky index function dega woh is url ko assign hoga name iss id inshort
-    path('counter',views.counter,name="counter")#yh url counter ky liyh banaya jaha frint sy data ayega count ka
+    path('counter',views.counter,name="counter"),#yh url counter ky liyh banaya jaha frint sy data ayega count ka
+    path('post/<str:pk>',views.post,name='post')#yh str uski data type bta raha yaha int bhi aaksta or pk variable ka name yaha bhi kuch bhi aaskta hai
 ]

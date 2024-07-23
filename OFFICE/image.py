@@ -17,12 +17,25 @@ def comparison(img1, img2):
     # convert to gray. What's the filter doing?
     gray1 = rgb2gray(img1)
     gray2 = rgb2gray(img2)
+        # Display gray1
+    plt.figure(figsize=(8, 4))
+    plt.imshow(gray1, cmap='gray')
+    plt.title('Gray1 Image')
+    plt.axis('off')
+    plt.show()
+
+        # Display gray1
+    plt.figure(figsize=(8, 4))
+    plt.imshow(gray2, cmap='gray')
+    plt.title('Gray2 Image')
+    plt.axis('off')
+    plt.show()
 
     # select a threhsold value and binarize the image
-    threshold = 0.7
+    threshold = 0.1
     gray1_bin = binarize(gray1, threshold)
     gray2_bin = binarize(gray2, threshold)
-
+    
     # in python you can compute a difference image.
     # so diff will contain in each pixel the difference between the two images
     diff = gray1_bin - gray2_bin
@@ -41,7 +54,7 @@ def rgb2gray(col_img):
 # the "main" method
 if __name__ == "__main__":
     # read the images
-    img = plt.imread(image_path_2)
+    img = plt.imread(image_path_1)
     img2 = plt.imread(image_path_2)
     result = comparison(img, img2)
 

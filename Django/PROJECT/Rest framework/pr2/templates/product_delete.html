@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if product %}
+  <h2>Delete Product</h2>
+  <p>Are you sure you want to delete "{{ product.name }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+{% else %}
+  <h2>Product Not Found</h2>
+{% endif %}
+{% endblock %}

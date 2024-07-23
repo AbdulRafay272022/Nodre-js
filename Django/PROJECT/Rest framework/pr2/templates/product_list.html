@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+<h2>Product List (Raw SQL)</h2>
+<ul>
+  {% for product in raw_products %}
+    <li>
+      {{ product.1 }} (&#8377;{{ product.2}})
+      <a href="{%url 'product_detail' product.0 %}">Product Details</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<hr>
+<a href="{% url 'product_create' %}">Create New Product</a>
+{% endblock %}

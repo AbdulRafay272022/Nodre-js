@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospect List Form</title>
+    {% load static %}
+    <style>
+        #projects-qa-container{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            /* align-content: stretch; */
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #qaForm {
+            width: 90%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            /* display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            align-content: stretch;
+            justify-content: space-evenly;
+            align-items: center;
+            justify-items: stretch; */
+        }
+        .qaPair {
+            display: flex;
+            flex-direction: column;
+            margin-right: 0px;
+        }
+        #qaForm label {
+            margin-bottom: 6px;
+            color: #373737;
+        }
+        #qaForm input[type=text], 
+        #qaForm input[type=number], 
+        #qaForm input[type=datetime-local] {
+            width: calc(100% - 20px); /* Adjust width to account for padding */
+            padding: 4px;
+            margin-bottom: 14px; /* Space between inputs */
+            border: 1px solid #929292;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #000000;
+            height: 7vh;
+        }
+        #qaForm button, #qaForm input[type=submit] {
+            
+            width:20vh;
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 10px 20px;
+            border: 1px solid #929292;
+            border-radius: 10px ;
+            cursor: pointer;
+            font-size: 20px;
+            margin-right: 5px;
+            grid-column: span 2; /* Make the button span two columns */
+            
+        }
+        #qaForm input[type="text"]:hover, 
+        #qaForm input[type="number"]:hover, 
+        #qaForm input[type="datetime-local"]:hover {
+            border: 1px solid #4a90e2 !important;
+        }
+        #qaForm button:hover, #qaForm input[type=submit]:hover {
+            background-color: #4a90e2;
+            border: 1px solid #4a90e2;
+        }
+        .project-name-display {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #4a90e2;
+            font-weight: bold;
+            text-align: center;
+            grid-column: span 2; /* Make the title span two columns */
+        }
+        .fields{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            align-content: stretch;
+            justify-content: space-evenly;
+            align-items: center;
+            justify-items: stretch;
+        }
+
+          /* Media query for small screens */
+          @media (max-width: 600px) {
+            #qaForm {
+                grid-template-columns: 1fr; /* Change to single column */
+            }
+            #qaForm button, #qaForm input[type=submit] {
+                grid-column: span 1; /* Adjust button to single column */
+            }
+            .project-name-display {
+                grid-column: span 1; /* Adjust title to single column */
+            }
+        }
+        
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a90e2;
+    height: 10vh;
+    margin-bottom: 40px;
+}
+
+header .logo {
+    width: 80px;
+    margin-left: 40px;
+    height: 8vh;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 40px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+    font-family: Arial, sans-serif;
+}
+footer {
+    margin: 20px;
+    font-size: 0.9em;
+    color: #727272;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+body{
+    background-color: #E7EBFD;
+}
+
+    </style>
+</head>
+<body style="display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+align-content: stretch;
+justify-content: space-evenly;
+align-items: stretch;">
+    <header>
+        <img src="{% static 'very-popular-topic-512.png'%}" alt="ASTRA" class="logo">
+        <nav>
+            <a href="#">Why Us</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <div id="projects-qa-container">
+        <div class="project-name-display">Prospect List Form</div>
+        <form id="qaForm" method="POST">
+            <div class="fields">
+            {% csrf_token %}
+            <div class="qaPair">
+                <label for="id_name_of_prospect">Name of Prospect:</label>
+                {{ form.name_of_prospect }}
+            </div>
+
+            <div class="qaPair">
+                <label for="id_number_of_vehicles">Number of Vehicles:</label>
+                {{ form.number_of_vehicles }}
+            </div>
+
+            <div class="qaPair">
+                <label for="id_existing_insurer">Existing Insurer:</label>
+                {{ form.existing_insurer }}
+            </div>
+
+            <div class="qaPair">
+                <label for="id_decision_maker">Decision Maker:</label>
+                {{ form.decision_maker }}
+            </div>
+
+            <div class="qaPair">
+                <label for="id_decision_maker_phone">Decision Maker Phone:</label>
+                {{ form.decision_maker_phone }}
+            </div>
+
+            <div class="qaPair">
+                <label for="id_meeting_time_date">Meeting Time/Date:</label>
+                {{ form.meeting_time_date }}
+            </div>
+
+            <div class="qaPair">
+                <label for="id_existing_rates">Existing Rates:</label>
+                {{ form.existing_rates }}
+            </div>
+        </div>
+        <div style="display: flex; justify-content: end;">
+            <button type="submit">Submit</button>
+        </div>
+
+        </form>
+    </div>
+   
+</body>
+</html>
